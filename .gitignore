@@ -1,0 +1,15 @@
+node_modules/
+dist/
+
+# Local environment — never commit your real API key!
+.env
+
+# Vitest coverage output
+coverage/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

@@ -1,0 +1,25 @@
+{
+  "name": "vitest-jira-reporter-example",
+  "version": "1.0.0",
+  "description": "Example project demonstrating @testream/vitest-reporter — stream Vitest test results into Jira with Testream",
+  "keywords": [
+    "vitest",
+    "jira",
+    "reporter",
+    "testream",
+    "test-reporting",
+    "ci-cd"
+  ],
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@testream/vitest-reporter": "latest",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^3.0.0"
+  }
+}
