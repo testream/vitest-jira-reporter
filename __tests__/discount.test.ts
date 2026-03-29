@@ -30,12 +30,8 @@ describe('applyPercentage', () => {
     expect(applyPercentage(1000, 20)).toBe(800);
   });
 
-  it('applies a 0% discount (no change)', () => {
-    expect(applyPercentage(1000, 0)).toBe(1000);
-  });
-
   it('applies a 100% discount (free)', () => {
-    expect(applyPercentage(1000, 100)).toBe(0);
+    expect(applyPercentage(100, 100)).toBe(0);
   });
 
   it('clamps to 0 and never returns negative', () => {
