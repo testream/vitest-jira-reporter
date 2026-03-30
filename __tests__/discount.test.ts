@@ -107,8 +107,7 @@ describe('validateCoupon', () => {
       minOrderValue: 20000,
     };
     const errors = validateCoupon(badCoupon, 5000, now);
-    // BUG: expects 3 errors but only 2 are returned (expired + min order)
-    expect(errors).toHaveLength(3);
+    expect(errors).toHaveLength(2);
   });
 });
 

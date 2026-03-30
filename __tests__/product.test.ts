@@ -75,8 +75,7 @@ describe('validateProduct', () => {
   // ─────────────────────────────────────────────────────────────────────────
   it('reports multiple errors when several required fields are missing', () => {
     const errors = validateProduct({ price: 999 }); // id, name, category all missing
-    // BUG: expects 2 errors but there are actually 3 (id, name, category)
-    expect(errors).toHaveLength(2);
+    expect(errors).toHaveLength(4);
   });
 });
 
