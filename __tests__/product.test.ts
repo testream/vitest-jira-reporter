@@ -75,8 +75,7 @@ describe('validateProduct', () => {
   // ─────────────────────────────────────────────────────────────────────────
   it('reports multiple errors when several required fields are missing', () => {
     const errors = validateProduct({ price: 999 }); // id, name, category all missing
-    // BUG: expects 2 errors but there are actually 3 (id, name, category)
-    expect(errors).toHaveLength(2);
+    expect(errors).toHaveLength(4);
   });
 });
 
@@ -111,6 +110,10 @@ describe('getDiscountedPrice', () => {
 describe('isInStock', () => {
   it('returns true when stock is greater than 0', () => {
     expect(isInStock(validProduct)).toBe(true);
+  });
+
+  it('returns true when stock equals 1', () => {
+    expect(isInStock({ ...validProduct, stock: 1 })).toBe(true);
   });
 
   it('returns false when stock is 0', () => {

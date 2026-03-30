@@ -107,8 +107,7 @@ describe('validateCoupon', () => {
       minOrderValue: 20000,
     };
     const errors = validateCoupon(badCoupon, 5000, now);
-    // BUG: expects 3 errors but only 2 are returned (expired + min order)
-    expect(errors).toHaveLength(3);
+    expect(errors).toHaveLength(2);
   });
 });
 
@@ -117,6 +116,11 @@ describe('applyCoupon', () => {
 
   it('applies a valid percentage coupon', () => {
     expect(applyCoupon(1000, validPercentageCoupon, now)).toBe(800); // 20% off
+  });
+
+  it('applies a coupon with a minimum order value when met', () => {
+    const couponWithMin: Coupon = { ...validPercentageCoupon, minOrderValue: 5000 };
+    expect(applyCoupon(10000, couponWithMin, now)).toBe(8000);
   });
 
   it('applies a valid fixed coupon', () => {

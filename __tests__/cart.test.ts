@@ -22,6 +22,10 @@ describe('Cart — adding items', () => {
     cart = new Cart();
   });
 
+  it('starts with an empty cart', () => {
+    expect(cart.isEmpty()).toBe(true);
+  });
+
   it('adds a new item with default quantity of 1', () => {
     cart.addItem(APPLE);
     const items = cart.getItems();
@@ -132,8 +136,6 @@ describe('Cart — checkout', () => {
   // ─────────────────────────────────────────────────────────────────────────
   it('throws a descriptive error when checking out an empty cart', () => {
     const cart = new Cart();
-    // BUG: wrong expected message — the real message is
-    // "Cannot check out with an empty cart"
-    expect(() => cart.checkout()).toThrow('Cart is empty');
+    expect(() => cart.checkout()).toThrow('Cannot check out with an empty cart');
   });
 });

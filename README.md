@@ -64,7 +64,7 @@ The reporter is configured in `vitest.config.ts`. Key points:
 
 - `uploadEnabled` is automatically set to `false` when no API key is present, so the reporter is only activated when a key exists.
 - `failOnUploadError` is `true` — recommended in CI so a broken upload does not silently swallow results.
-- All options are set explicitly with no hidden defaults so you can see exactly what each value controls.
+- `branch`, `commitSha`, `repositoryUrl`, `buildNumber`, and `buildUrl` are **auto-resolved** by the reporter — no manual wiring needed.
 
 See the [Testream Vitest reporter docs](https://docs.testream.app/reporters/vitest) for the full list of configuration options.
 
@@ -77,6 +77,8 @@ The workflow at `.github/workflows/vitest.yml` runs all tests on every push and 
 | Name | Value |
 |---|---|
 | `TESTREAM_API_KEY` | your Testream API key |
+
+All other metadata (branch, commit SHA, build number, build URL, repository URL) is resolved automatically — nothing else to configure.
 
 ## Viewing results in Jira
 

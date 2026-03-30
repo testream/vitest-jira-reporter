@@ -13,3 +13,4 @@ coverage/
 # Editor
 .vscode/
 .idea/
+ctrf/**
