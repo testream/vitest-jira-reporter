@@ -119,6 +119,11 @@ describe('applyCoupon', () => {
     expect(applyCoupon(1000, validPercentageCoupon, now)).toBe(800); // 20% off
   });
 
+  it('applies a coupon with a minimum order value when met', () => {
+    const couponWithMin: Coupon = { ...validPercentageCoupon, minOrderValue: 5000 };
+    expect(applyCoupon(10000, couponWithMin, now)).toBe(8000);
+  });
+
   it('applies a valid fixed coupon', () => {
     expect(applyCoupon(1000, validFixedCoupon, now)).toBe(500); // £5.00 off
   });

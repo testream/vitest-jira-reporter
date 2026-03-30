@@ -22,6 +22,10 @@ describe('Cart — adding items', () => {
     cart = new Cart();
   });
 
+  it('starts with an empty cart', () => {
+    expect(cart.isEmpty()).toBe(true);
+  });
+
   it('adds a new item with default quantity of 1', () => {
     cart.addItem(APPLE);
     const items = cart.getItems();

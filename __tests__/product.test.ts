@@ -113,6 +113,10 @@ describe('isInStock', () => {
     expect(isInStock(validProduct)).toBe(true);
   });
 
+  it('returns true when stock equals 1', () => {
+    expect(isInStock({ ...validProduct, stock: 1 })).toBe(true);
+  });
+
   it('returns false when stock is 0', () => {
     expect(isInStock({ ...validProduct, stock: 0 })).toBe(false);
   });
